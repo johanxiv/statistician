@@ -88,6 +88,7 @@ void removeData(Statistician s, int x) {
 		if (curr->data == x) {
 			if (prev == NULL) head = curr->next;
 			else prev->next = curr->next;
+		printf("\nDATA SUCCESSFULLY REMOVED\n");
 		count = 1;
 		free(curr);
 		break;
@@ -149,7 +150,6 @@ void selection(int sel) {
 					printf("\nEnter data: ");
 					scanf("%d", &x);
 					removeData(s, x);
-					printf("\nDATA SUCCESSFULLY REMOVED\n");
 				}
 				return;
 			
