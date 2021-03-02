@@ -34,10 +34,17 @@ int getLength(Statistician s);
 int minimum(Statistician s);
 int maximum(Statistician s);
 int range(Statistician s, int min, int max);
+
 float getMean(Statistician s);
-float getMedian(Statistician s);
-void sortList(Statistician s);
+
+DataStore getMedian(Statistician s);
+void sortArrMedian(int a[], int len);
+void sort(int *x, int *y);
+void getArrMedian(int a[], int len);
+
+
 DataStore getMode(Statistician s);
-int getArrMode(int a[], int len);
+void getArrMode(int a[], int len);
+
 float getVariance(Statistician s, int length);
 float standardDeviation(Statistician s, float var);
