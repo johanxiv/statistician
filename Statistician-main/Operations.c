@@ -85,7 +85,7 @@ float getMean(Statistician s)
 	return mean;
 }
 
-float getMedian(Statistician s)
+float tempgetMedian(Statistician s)
 {
 	int sum = 0;
 	float median = 0.0;
@@ -134,7 +134,7 @@ DataStore getMode(Statistician s)
 }
 
 
-int getArrMode(int a[], int len)
+void getArrMode(int a[], int len)
 {
 	int max = 0, lastCount = 0;
 	int i, j, t;
@@ -211,5 +211,57 @@ float standardDeviation(Statistician s, float var)
 	sdv = sqrtf(var);
 	
 	return sdv;
+}
+
+DataStore getMedian(Statistician s)
+{
+	int length = getLength(s);
+	int a[length];
+	int i = 0;
+	float median;
+	
+	struct node *ptr = head;
+	
+	while (ptr != NULL)
+	{
+		a[i++] = ptr->data;
+		ptr = ptr->next;
+	}
+	
+	sortArray(a, length);
+}
+
+void sortArrMedian(int a[], int len)
+{
+	int i, k, min;
+	float median;
+	
+	for (i = 0; i < len - 1; i++)
+	{
+		min = i;
+		for (k = i + 1; k < len; k++)
+			if (a[k] < a[min]) min = k;
+			//
+			sort(&a[min], &a[i]);
+	}
+	getArrayMedian(a[i], len);
+
+}
+
+void sort(int *x, int *y)
+{
+	int temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+void getArrMedian(int a[], int len)
+{
+	float median = 0.0;
+		
+		if (len%2 == 0) median = (a[(len-1)/2] + a[len/2]) / 2;
+		else median = a[len/2];
+		
+	printf("\nMedian: %f", median);
 }
 
